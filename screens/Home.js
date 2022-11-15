@@ -11,7 +11,7 @@ import BottomTabs from "../components/home/BottomTabs";
 
 let YELP_API_KEY =
   "--xRpQDsDX-6aNjdyq8G-cxl47xJxl8MF3G5coJqdn2ICNYk43p1r_6AP2qZehxu_-c8adbJB4__QqDEbJ5v1SK0B7f7IQWamP50SJVAVXh2jl0A8bGofxJ1TH1wY3Yx";
-export default function Home() {
+export default function Home({ navigation }) {
   const [restaurantData, setRestaurantData] = React.useState(localRestaurants);
   const [city, setCity] = useState("Rockville+Centre");
   const [activeTab, setActiveTab] = useState("delivery");
@@ -46,7 +46,10 @@ export default function Home() {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Categories />
-        <RestaurantItem restaurantsData={restaurantData} />
+        <RestaurantItem
+          restaurantsData={restaurantData}
+          navigation={navigation}
+        />
       </ScrollView>
       <Divider width={1} />
       <BottomTabs />
